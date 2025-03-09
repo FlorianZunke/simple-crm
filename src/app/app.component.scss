@@ -1,0 +1,53 @@
+.sidenav {
+    height: 100vh;
+    width: 300px;
+}
+
+.logo {
+    height: 80px;
+    width: 95px;
+}
+
+.logo-container {
+    height: 63px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 0 16px;
+}
+
+.mat-drawer-container {
+    height: 100vh;
+}
+
+.menu-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    >li {
+        height: 48px;
+        padding: 0 16px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        >a {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: whitesmoke;
+            height: 48px;
+            width: 100%;
+            max-width: 300px;
+            z-index: 2;
+        }
+    }
+}
+
+.router-container {
+    padding: 16px 16px;
+}
