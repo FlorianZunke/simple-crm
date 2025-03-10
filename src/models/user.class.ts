@@ -1,6 +1,7 @@
 export class User {
     firstName: string = "";
     lastName: string = "";
+    email: string = "";
     birthdate: number = 0;
     street: string = "";
     zipCode: number = 0;
@@ -20,6 +21,7 @@ export class User {
         return {
             firstName:  this.firstName,
             lastName:  this.lastName,
+            email: this.email,
             birthdate: this.birthdate,
             street:  this.street,
             zipCode: this.zipCode,

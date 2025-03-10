@@ -6,6 +6,8 @@ import { DiaologAddUserComponent } from '../diaolog-add-user/diaolog-add-user.co
 import { MatDialog } from '@angular/material/dialog';
 import { User } from '../../models/user.class';
 import { MatCardModule } from '@angular/material/card';
+import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -16,12 +18,25 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class UserComponent {
 
-  user : User = new User();
+  user: User = new User();
+  allUsers: any = [];
 
-  constructor (public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private firestore: FirebaseService, private router: Router) { }
+
+  
+  async ngOnInit() {
+    this.allUsers = await this.firestore.getUsers();
+    console.log(this.allUsers);
+  }
+
 
   openDialog(): void {
     this.dialog.open(DiaologAddUserComponent)
   };
+
+
+  navigateToUser(userId: string) {
+    this.router.navigate(['/user', userId]); 
+  }
 
 }

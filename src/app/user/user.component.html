@@ -5,11 +5,15 @@
             <th>E-Mail</th>
             <th>City</th>
         </tr>
-        <tr>
-            <td>Name</td>
-            <td>E-Mail</td>
-            <td>City</td>
+
+        @for (user of allUsers; track user) {
+        <tr (click)="navigateToUser(user.id)">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.city }}</td>
         </tr>
+        }
+
     </table>
 </mat-card>
 

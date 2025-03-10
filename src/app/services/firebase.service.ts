@@ -12,4 +12,13 @@ export class FirebaseService {
     const usersRef = collection(this.firestore, 'users');
     return await addDoc(usersRef, user);
   }
+
+  async getUsers() {
+    const usersRef = collection(this.firestore, 'users');
+    const snapshot = await getDocs(usersRef);
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+  }
 }
