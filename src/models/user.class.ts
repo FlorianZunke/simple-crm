@@ -1,32 +1,25 @@
 export class User {
-    firstName: string = "";
-    lastName: string = "";
-    email: string = "";
-    birthdate: number = 0;
-    street: string = "";
-    zipCode: number = 0;
-    city: string = "";
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    birthdate?: number;
+    street?: string;
+    zipCode?: number;
+    city?: string;
 
-
-    constructor(obj?: any) {
-        this.firstName = obj ? obj.firstName : '';
-        this.lastName = obj ? obj.lastName : '';
-        this.birthdate = obj ? obj.birthdate : '';
-        this.street = obj ? obj.street : '';
-        this.zipCode = obj ? obj.zipCode : '';
-        this.city = obj ? obj.city : '';
+    constructor(obj?: Partial<User>) {
+        if (obj) Object.assign(this, obj);
     }
 
     public toJson() {
         return {
-            firstName:  this.firstName,
-            lastName:  this.lastName,
+            firstName: this.firstName,
+            lastName: this.lastName,
             email: this.email,
             birthdate: this.birthdate,
-            street:  this.street,
+            street: this.street,
             zipCode: this.zipCode,
-            city:  this.city,
-        }
+            city: this.city,
+        };
     }
-
 }
