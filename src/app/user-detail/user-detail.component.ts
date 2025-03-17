@@ -48,11 +48,14 @@ export class UserDetailComponent {
 
   editUser() {
     const dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJson());
+    dialog.componentInstance.userId = this.userId;
   }
 
 
   editMenu() {
     const dialog = this.dialog.open(DialogEditAddressComponent);
-    dialog.componentInstance.user = this.user;
+    dialog.componentInstance.user = new User(this.user.toJson());
+    dialog.componentInstance.userId = this.userId;
   }
 }
